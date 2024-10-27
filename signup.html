@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #3A3737, #858181);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FD0019;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e60000;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <div id="nameError" class="error"></div>
+            </div>
+            <div>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <div id="emailError" class="error"></div>
+            </div>
+            <div>
+                <input type="password" id="password" placeholder="Password" required>
+                <div id="passwordError" class="error"></div>
+            </div>
+            <div>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <div id="confirmPasswordError" class="error"></div>
+            </div>
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Clear previous error messages
+            document.getElementById('nameError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('passwordError').innerText = '';
+            document.getElementById('confirmPasswordError').innerText = '';
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+            // Validate form inputs
+            let hasError = false;
+
+            if (!name) {
+                document.getElementById('nameError').innerText = 'Please enter your name.';
+                hasError = true;
+            }
+            if (!email) {
+                document.getElementById('emailError').innerText = 'Please enter your email.';
+                hasError = true;
+            } else {
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (!emailPattern.test(email)) {
+                    document.getElementById('emailError').innerText = 'Please enter a valid email.';
+                    hasError = true;
+                }
+            }
+            if (!password) {
+                document.getElementById('passwordError').innerText = 'Please enter a password.';
+                hasError = true;
+            }
+            if (!confirmPassword) {
+                document.getElementById('confirmPasswordError').innerText = 'Please confirm your password.';
+                hasError = true;
+            } else if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').innerText = 'Passwords do not match.';
+                hasError = true;
+            }
+
+            // If there are no errors, submit the form
+            if (!hasError) {
+                alert('Your account has been created!');
+                document.getElementById('signupForm').reset(); // Reset the form
+            }
+        });
+    </script>
+</body>
+</html>

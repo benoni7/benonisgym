@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #3A3737, #858181);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FD0019;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e60000;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        .logo {
+            width: 60px;
+            margin-left: 30px;
+        }
+        .name {
+            color: white;
+            margin-left: 15px;
+            font-size: 2em;
+            vertical-align: middle;
+        }
+        .header {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            height: 100px; /* Adjusted height for layout */
+            padding-top: 20px; /* Centers vertically */
+            padding-left: 20px;
+            position: fixed;
+            top: 0; /* Stick to the top */
+            left: 0; /* Align to the left */
+            right: 0;
+        }
+        .right {
+            flex: 1;
+            text-align: right;
+            margin-right: 30px;
+        }
+        .right a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-left: 15px; /* Space between links */
+        }
+        .left {
+            flex: 2;
+            display: flex;
+            align-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="left">
+           <a href="index.html">><h1 class="name">Benoni's Gym</h1></a>
+        </div>
+        <div class="right">
+            <a href="aboutus.html">About Us</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <div id="nameError" class="error"></div>
+            </div>
+            <div>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <div id="emailError" class="error"></div>
+            </div>
+            <div>
+                <input type="text" id="subject" placeholder="Subject" required>
+                <div id="subjectError" class="error"></div>
+            </div>
+            <div>
+                <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+                <div id="messageError" class="error"></div>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Clear previous error messages
+            document.getElementById('nameError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('subjectError').innerText = '';
+            document.getElementById('messageError').innerText = '';
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Validate form inputs
+            let hasError = false;
+
+            if (!name) {
+                document.getElementById('nameError').innerText = 'Please enter your name.';
+                hasError = true;
+            }
+            if (!email) {
+                document.getElementById('emailError').innerText = 'Please enter your email.';
+                hasError = true;
+            } else {
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (!emailPattern.test(email)) {
+                    document.getElementById('emailError').innerText = 'Please enter a valid email.';
+                    hasError = true;
+                }
+            }
+            if (!subject) {
+                document.getElementById('subjectError').innerText = 'Please enter a subject.';
+                hasError = true;
+            }
+            if (!message) {
+                document.getElementById('messageError').innerText = 'Please enter your message.';
+                hasError = true;
+            }
+
+            // If there are no errors, submit the form
+            if (!hasError) {
+                alert('Your message has been sent!');
+                document.getElementById('contactForm').reset(); // Reset the form
+            }
+        });
+    </script>
+</body>
+</html>

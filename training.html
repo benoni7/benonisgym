@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            color: white;
+            margin: 0; /* Remove default margin */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-family: 'Pacifico', cursive; /* Moved font-family to body */
+        }
+
+        .whole {
+            background-image: url('pexels-panther-1547248.jpg (1).jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top; /* Adjusted to shift the background */
+            padding-bottom: 50px; /* Optional padding to separate from the next section */
+            height: 100vh; /* Set height to 100% of the viewport height */
+        }
+
+        .logo {
+            width: 60px;
+            margin-left: 30px;
+        }
+        .name {
+            color: white;
+            margin-left: 15px;
+            font-size: 2em;
+            vertical-align: middle;
+        }
+        .header {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            height: 100px; /* Adjusted height for layout */
+            padding-top: 20px; /* Centers vertically */
+            padding-left: 20px;
+        }
+        .right {
+            flex: 1;
+            text-align: right;
+            margin-right: 30px;
+        }
+        .right a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-left: 15px; /* Space between links */
+        }
+        .left {
+            flex: 2;
+            display: flex;
+            align-items: center;
+        }
+        .contact {
+            margin-left: 30px;
+        }
+        /* Container for the animated text */
+        .container {
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            height: 150px; /* Full viewport height */
+        }
+
+        /* Base text that stays in place */
+        .static-text {
+            margin-right: 10px;
+            color: #fff; /* Color for the static text */
+        }
+
+        /* Scrolling words container */
+        .scrolling-words {
+            display: inline-block;
+            height: 1em; /* Ensures that only one line of text is visible at a time */
+            overflow: hidden;
+        }
+
+        /* Position each word in a vertical line with gradient text */
+        .scrolling-words span {
+            display: block;
+            text-align: left;
+            animation: scrollWords 6s ease-in-out infinite;
+            background: linear-gradient(135deg, #E0FCCF, #FD0019); /* Gradient colors */
+            -webkit-background-clip: text; /* Clips background to text */
+            -webkit-text-fill-color: transparent; /* Makes the text color transparent */
+        }
+
+        /* Keyframes for scrolling words */
+        @keyframes scrollWords {
+            0% { transform: translateY(0); }
+            33% { transform: translateY(-100%); }  /* Move to 'Sweat' */
+            66% { transform: translateY(-200%); }  /* Move to 'Achieve' */
+            100% { transform: translateY(0); }     /* Loop back to 'Work' */
+        }
+        .come {
+            margin-left: 100px;
+        }
+        .welcome {
+            margin-bottom: 50px; /* Reduced margin for spacing */
+            padding: 0 20px; /* Added padding for better text placement */
+            text-align: center; /* Centered text */
+        }
+        .section1 {
+            background-color: rgba(58, 55, 55, 0.9); /* Solid background color */
+            padding: 20px; /* Added padding for spacing */
+            height: auto; /* Adjusted height to auto */
+            overflow-y: auto; /* Allows vertical scrolling */
+            margin-top: 150px;
+        }
+        /* Container for the list */
+        .leftscroll-container {
+            display: flex;
+            overflow-x: auto; /* Enables horizontal scrolling */
+            gap: 20px; /* Adds space between items */
+            padding: 10px;
+            white-space: nowrap; /* Prevents items from wrapping to the next line */
+        }
+
+        /* Styling each list item */
+        .leftscroll-item {
+            min-width: 250px; /* Ensures each item has a minimum width */
+            max-width: 300px; /* Sets a maximum width for better responsiveness */
+            background-color: #3A3737;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 0 0 auto; /* Prevents items from shrinking */
+            box-sizing: border-box; /* Ensures padding is included in the total width */
+            height: 180px; /* Increased height for each item */
+            display: flex; /* Enable flexbox for content alignment */
+            flex-direction: column; /* Align children in a column */
+            justify-content: center; /* Center the content vertically */
+            overflow: hidden; /* Ensures content doesn't overflow */
+        }
+
+        /* Optional scrollbar styling (only visible on Webkit browsers) */
+        .leftscroll-container::-webkit-scrollbar {
+            height: 5px;
+        }
+        .leftscroll-container::-webkit-scrollbar-thumb {
+            background-color: #858181;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="whole">
+        <div class="header">
+            <div class="left">
+                <img class="logo" src="Dark Blue and Brown Illustrative Fitness Gym Logo.png" alt="Logo">
+                <h1 class="name">Benoni's Gym</h1>
+            </div>
+            <div class="right">
+                <a href="#about">About Us</a>
+                <a class="contact" href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="come">
+            <div class="container">
+                <span class="static-text">Come</span>
+                <div class="scrolling-words">
+                    <span>Work</span>
+                    <span>Sweat</span>
+                    <span>Achieve</span>
+                </div>
+            </div>
+        </div>
+        <p class="welcome">Welcome to BENONI Gym and Fitness! We’re excited to have you here as part of our fitness community. Whether you're aiming to build strength, improve your endurance, or simply enhance your overall health, we’re here to support you. With our state-of-the-art equipment, expert trainers, and diverse fitness programs, you'll find everything you need to achieve your goals. Let’s work together to become the best version of yourself!</p>
+    
+    <!-- New Section for Amenities -->
+    <section class="section1" id="amenities">
+        <h2 class="Amenities">Available Amenities</h2>
+        <!-- Scrollable list container -->
+        <div class="leftscroll-container">
+            <div class="leftscroll-item">
+                <h3>Personal Trainer</h3>
+                <p>Achieve your fitness goals faster<br>with our certified trainers,<br>who will create a personalized<br>workout plan just for you.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Group Classes</h3>
+                <p>Join our group classes for a fun and<br>motivating workout experience.<br>Our trainers will guide you through<br>various exercises.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Nutrition Coaching</h3>
+                <p>Get personalized nutrition plans and<br>advice from our certified nutritionists<br>to help you reach your fitness goals.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>State-of-the-Art Equipment</h3>
+                <p>Utilize the latest fitness equipment<br>to enhance your workout and achieve<br>better results.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Flexible Hours</h3>
+                <p>Enjoy our gym facilities with flexible<br>operating hours that suit your schedule.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Online Training</h3>
+                <p>Access virtual training sessions from<br>the comfort of your home with our<br>experienced trainers.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Wellness Programs</h3>
+                <p>Participate in wellness programs that<br>focus on mental and physical well-being.</p>
+            </div>
+        </div>
+    </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            color: white;
+            background: linear-gradient(to right, #3A3737, #858181);
+            font-family: 'Pacifico', cursive;
+            margin: 0; /* Remove default margin */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .logo {
+            width: 60px;
+            margin-left: 30px;
+        }
+        .name {
+            color: white;
+            margin-left: 15px;
+            font-size: 2em;
+            vertical-align: middle;
+        }
+        .header {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            height: 100px; /* Adjusted height for layout */
+            padding-top: 20px; /* Centers vertically */
+            padding-left: 20px;
+            position: fixed;
+            top: 0; /* Stick to the top */
+            left: 0; /* Align to the left */
+            right: 0;
+        }
+        .right {
+            flex: 1;
+            text-align: right;
+            margin-right: 30px;
+        }
+        .right a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-left: 15px; /* Space between links */
+        }
+        .left {
+            flex: 2;
+            display: flex;
+            align-items: center;
+        }
+        .contact {
+            margin-left: 30px;
+        }
+        /* Container for the animated text */
+        .container {
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            height: 150px; /* Full viewport height */
+        }
+
+        /* Base text that stays in place */
+        .static-text {
+            margin-right: 10px;
+            color: #fff; /* Color for the static text */
+        }
+
+        /* Scrolling words container */
+        .scrolling-words {
+            display: inline-block;
+            height: 1em; /* Ensures that only one line of text is visible at a time */
+            overflow: hidden;
+        }
+
+        /* Position each word in a vertical line with gradient text */
+        .scrolling-words span {
+            display: block;
+            text-align: left;
+            animation: scrollWords 6s ease-in-out infinite;
+            background: linear-gradient(135deg, #E0FCCF, #FD0019); /* Gradient colors */
+            -webkit-background-clip: text; /* Clips background to text */
+            -webkit-text-fill-color: transparent; /* Makes the text color transparent */
+        }
+
+        /* Keyframes for scrolling words */
+        @keyframes scrollWords {
+            0% { transform: translateY(0); }
+            33% { transform: translateY(-100%); }  /* Move to 'Sweat' */
+            66% { transform: translateY(-200%); }  /* Move to 'Achieve' */
+            100% { transform: translateY(0); }     /* Loop back to 'Work' */
+        }
+        .come {
+            margin-left: 100px;
+            margin-top: 95px;
+            font-size: 40px;
+        }
+        .welcome {
+            margin-bottom: 50px; /* Reduced margin for spacing */
+            padding: 0 20px; /* Added padding for better text placement */
+            text-align: center; /* Centered text */
+        }
+        .section1 {
+            background-color: rgba(58, 55, 55, 0.9); /* Solid background color */
+            padding: 20px; /* Added padding for spacing */
+            height: auto; /* Adjusted height to auto */
+            overflow-y: auto; /* Allows vertical scrolling */
+            margin-top: 150px;
+            margin-bottom: 0;
+        }
+        /* Container for the list */
+        .leftscroll-container {
+            display: flex;
+            overflow-x: auto; /* Enables horizontal scrolling */
+            gap: 20px; /* Adds space between items */
+            padding: 10px;
+            white-space: nowrap; /* Prevents items from wrapping to the next line */
+        }
+
+        /* Styling each list item */
+        .leftscroll-item {
+            min-width: 250px; /* Ensures each item has a minimum width */
+            max-width: 300px; /* Sets a maximum width for better responsiveness */
+            background-color: #3A3737;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 0 0 auto; /* Prevents items from shrinking */
+            box-sizing: border-box; /* Ensures padding is included in the total width */
+            height: 180px; /* Increased height for each item */
+            display: flex; /* Enable flexbox for content alignment */
+            flex-direction: column; /* Align children in a column */
+            justify-content: center; /* Center the content vertically */
+            overflow: hidden; /* Ensures content doesn't overflow */
+        }
+
+        /* Optional scrollbar styling (only visible on Webkit browsers) */
+        .leftscroll-container::-webkit-scrollbar {
+            height: 5px;
+        }
+        .leftscroll-container::-webkit-scrollbar-thumb {
+            background-color: #858181;
+            border-radius: 4px;
+        }
+        .whole{
+            background-image: url('pexels-panther-1547248.jpg (1).jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top; /* Adjusted to shift the background */
+            display: grid;
+            top:0;
+        }
+        .section2{
+            background: linear-gradient(to right, #3A3737, #858181);
+            margin: 0;
+            padding: 20px;
+            margin-bottom: 50px;
+            
+        }
+        .basic{
+            display: flex;
+            flex-direction: row;
+        }
+        .boxer{
+            height: 600px;
+            
+            margin-left: 100px;
+           
+        }
+        .basic-text{
+            width: 800px;
+            font-size: 19px;
+        }
+        .section3{
+            background: linear-gradient(to right, #3A3737, #858181);
+            margin: 0;
+            padding: 20px;
+        }
+        h2{
+           margin-left: 500px;
+        }
+        .pic2{
+            height: 600px;   
+            margin-left: 20px;
+        }
+        .premium-text{
+            width: 800px;
+            font-size: 19px;
+            margin-left: 100px;
+        }
+        button{
+            padding: 10px;
+            width: 100px;
+            margin-left: 700px;
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <section class="whole">
+        <div class="header">
+        <div class="left">
+            <img class="logo" src="Dark Blue and Brown Illustrative Fitness Gym Logo.png" alt="Logo">
+            <h1 class="name">Benoni's Gym</h1>
+        </div>
+        <div class="right">
+            <a href="aboutus.html">About Us</a>
+            <a class="contact" href="contactus.html">Contact us</a>
+        </div>
+    </div>
+    <div class="come">
+        <div class="container">
+            <span class="static-text">Come</span>
+            <div class="scrolling-words">
+                <span>Work</span>
+                <span>Sweat</span>
+                <span>Achieve</span>
+            </div>
+        </div>
+    </div>
+    <p class="welcome">Welcome to BENONI Gym and Fitness! We’re excited to have you here as part of our fitness community. Whether you're aiming to build strength, improve your endurance, or simply enhance your overall health, we’re here to support you. With our state-of-the-art equipment, expert trainers, and diverse fitness programs, you'll find everything you need to achieve your goals. Let’s work together to become the best version of yourself!</p>
+    <a href="signup.html"><button>sign up</button></a>
+    
+    <!-- New Section for Amenities -->
+    <section class="section1" id="amenities">
+        <h2 class="Amenities">Available Amenities</h2>
+        <!-- Scrollable list container -->
+        <div class="leftscroll-container">
+            <div class="leftscroll-item">
+                <h3>Personal Trainer</h3>
+                <p>Achieve your fitness goals faster<br>with our certified trainers,<br>who will create a personalized<br>workout plan just for you.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Group Classes</h3>
+                <p>Join our group classes for a fun and<br>motivating workout experience.<br>Our trainers will guide you through<br>various exercises.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Nutrition Coaching</h3>
+                <p>Get personalized nutrition plans and<br>advice from our certified nutritionists<br>to help you reach your fitness goals.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>State-of-the-Art Equipment</h3>
+                <p>Utilize the latest fitness equipment<br>to enhance your workout and achieve<br>better results.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Flexible Hours</h3>
+                <p>Enjoy our gym facilities with flexible<br>operating hours that suit your schedule.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Online Training</h3>
+                <p>Access virtual training sessions from<br>the comfort of your home with our<br>experienced trainers.</p>
+            </div>
+            <div class="leftscroll-item">
+                <h3>Wellness Programs</h3>
+                <p>Participate in wellness programs that<br>focus on mental and physical well-being.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+    <section class="section2">
+        <h2>membership programs</h2>
+        <h3>Basic membership</h3>
+        <div class="basic">
+            <div class="basic-text">
+            <p>
+                This membership option offers limited access to gym facilities, designed specifically for those who can work out during quieter times. With access restricted to off-peak hours, typically weekdays before 5 PM, members enjoy a more relaxed, peaceful environment, perfect for focusing on their fitness goals without the crowd.
+            </p>
+            <p>
+                The cost is set at the lowest price point, making it an affordable choice for individuals on a budget who still want quality fitness experiences. This membership is ideal for beginners who are just starting out and may not need full-time access, as well as for those with flexible schedules, like students, retirees, remote workers, or anyone seeking a more economical way to access the gym.
+            </p>
+            <p>
+                Members can take advantage of a complimentary orientation session with a personal trainer, helping them become comfortable with the equipment and ensuring they start off on the right track. Additionally, select group classes are available during off-peak times, offering variety and motivation to keep workouts interesting.
+            </p>
+            <p>
+                While this membership provides essential access to core facilities, upgrading to a higher-tier membership is always an option as fitness needs evolve. This plan combines affordability with flexible, quality gym access, offering a seamless entry point into fitness.
+            </p>
+                </div>
+            <img class="boxer" src="pexels-cottonbro-4753988.jpg">
+            
+            
+        </div>
+        <a href="signup.html"><button>sign up</button></a>
+    </section>
+    <section class="section3">
+        
+        <div class="basic">
+            <img class="pic2" src="pexels-leonardho-1552106.jpg">
+            <div class="premium-text">
+                <h3>premium membership</h3>
+                <p>
+                    Our Premium Membership grants unlimited access to all gym facilities, allowing members the freedom to work out anytime that suits their schedule, with no restrictions on peak hours. From early mornings to late nights, members enjoy the flexibility of using all available resources whenever they want.
+                </p>
+                <p>
+                    This membership level includes complimentary access to all group classes, ranging from high-intensity interval training (HIIT) to yoga, Pilates, and more. Members can enjoy an array of diverse class options led by our skilled instructors, catering to all fitness levels and interests. It’s the perfect way to stay motivated, connect with others, and maintain variety in your workout routine.
+                </p>
+                <p>
+                    Premium members also receive personalized fitness guidance through one-on-one sessions with our expert personal trainers. These sessions are tailored to each member’s specific goals, whether they’re looking to build muscle, improve endurance, or enhance overall wellness. Members can schedule these sessions at their convenience to ensure consistent support and results.
+                </p>
+                <p>
+                    As part of our commitment to supporting a holistic approach to health, premium members are granted exclusive access to our wellness programs, which include nutritional counseling, lifestyle coaching, and workshops on healthy living. These additional services are designed to provide comprehensive support beyond the gym floor, helping members achieve balanced and sustainable wellness.
+                </p>
+                
+            </div>
+        </div>
+        <a href="signup.html"><button>sign up</button></a>
+    </section>
+    <section class="section4">
+        <footer style="background-color: #3A3737; color: #fff; padding: 40px 20px; text-align: center; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-around;">
+            <!-- Quick Links -->
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="margin-bottom: 15px;">Quick Links</h3>
+                <p><a href="#about" style="color: #E0FCCF; text-decoration: none;">About Us</a></p>
+                <p><a href="#amenities" style="color: #E0FCCF; text-decoration: none;">Amenities</a></p>
+                <p><a href="#membership" style="color: #E0FCCF; text-decoration: none;">Membership</a></p>
+                <p><a href="#contact" style="color: #E0FCCF; text-decoration: none;">Contact</a></p>
+            </div>
+            <!-- Contact Information -->
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="margin-bottom: 15px;">Contact Us</h3>
+                <p>Benoni's Gym</p>
+                <p>Addis Ababa, Ethiopia</p>
+                <p>Phone: +251-123-456789</p>
+                <p>Email: info@benonisgym.com</p>
+            </div>
+            <!-- Social Media -->
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="margin-bottom: 15px;">Follow Us</h3>
+                <p><a href="#" style="color: #E0FCCF; text-decoration: none;">Facebook</a></p>
+                <p><a href="#" style="color: #E0FCCF; text-decoration: none;">Instagram</a></p>
+                <p><a href="#" style="color: #E0FCCF; text-decoration: none;">Twitter</a></p>
+                <p><a href="#" style="color: #E0FCCF; text-decoration: none;">LinkedIn</a></p>
+            </div>
+            <!-- Gym Description -->
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="margin-bottom: 15px;">About Benoni's Gym</h3>
+                <p>Empowering you to reach your fitness goals with top-notch equipment, dedicated trainers, and an inclusive community. Join us to build strength, endurance, and a healthier you!</p>
+            </div>
+            <!-- Copyright -->
+            <div style="width: 100%; margin-top: 20px; border-top: 1px solid #858181; padding-top: 10px;">
+                <p>&copy; 2024 Benoni's Gym and Fitness. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>
